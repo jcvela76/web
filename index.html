@@ -15,13 +15,18 @@
   	<div ng-controller="MyController as ctrl">
 	  	<div id="layer" class="julio" data-id="345">
 		  	
-			  <video width="1920" loop autoplay class="video-background">
-  <source src="movie.mp4" type="video/mp4">
-  <source src="movie.ogg" type="video/ogg">
-    Your browser does not support the video tag.
-</video>
+			  <video width="1920" loop autoplay class="video-background" id="vid">
+          <source src="movie.mp4" type="video/mp4">
+          <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+        </video>
 	  	</div>
+      
       <div id="layer_intro">
+            <p class="subtitle fancy"><span>About Me</span></p>
+
+            <p class="subtitle fancy"><span>A fancy subtitle</span></p>
+
             <h1>{Julio Vela: </h1>
             <h1 ng-bind="ctrl.skill"></h1>
             <h1 id="promt_" ng-bind="ctrl.promt">_</h1>
@@ -30,7 +35,11 @@
                 <div id="scroll_sign">>></div>
                 <div id="coming">coming soon</div>
             </div> 
+            <p class="subtitle fancy"><span>Projects</span></p>
+
+            <p class="subtitle fancy"><span>Contact Me</span></p>
       </div>
+      
 
   	</div> 
 

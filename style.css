@@ -32,7 +32,7 @@ body{
 }
 #layer_intro{
 	text-align: center;
-	padding-top: 510px;
+	padding-top: 300px;
 	background-image: url("images/black-squares.png");
 }
 #layer_intro h1{
@@ -73,28 +73,104 @@ body{
 #scroll_sign{
 	display: none;
 	-webkit-animation-name: example; /* Chrome, Safari, Opera */
-    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
     -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
     animation-name: example;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     position: relative;
+    text-shadow: rgba(10,26,26,1) 0px 5px 5px;
+}
+.menu{
+	/*display: none;*/
+	color: #fff;
+	font-family: "program";
+	font-size: 35px;
+	border: 3px solid #fff;
+	width: 200px;
+	margin: 30px auto;
+	padding: 15px auto;
+	line-height: 45px;
+}
+.menu:after { 
+    content:"";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5em;
+    border-top: 1px solid black;
+    z-index: -1;
+
 }
 
-
 @-webkit-keyframes example {
-    0%   {top:-20px;}
+    0%   {top:-10px;}
 
-    50%  {top:40px; opacity: 0.1;}
+    50%  {top:50px; opacity: 0.5;}
 
-    100% {top:-20px;}
+    100% {top:-10px;}
 }
 
 /* Standard syntax */
 @keyframes example {
-    0%   {top:-20px;}
+    0%   {top:-10px;}
 
-    50%  {top:40px; opacity: 0.1;}
+    50%  {top:50px; opacity: 0.5;}
 
-    100% {top:-20px;}
+    100% {top:-10px;}}
+
+
+
+.fancy {
+  line-height: 0.5;
+  text-align: center;
 }
+.fancy span {
+  display: inline-block;
+  position: relative;  
+  color: #fff;
+	font-size: 35px;
+	line-height: 50px;
+	border: 3px solid transparent;
+	padding: 0px 10px;
+	text-shadow: rgba(10,26,26,1) 0px 5px 5px;
+	margin: 15px;
+	-webkit-transition: border 0.2s linear 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: border 0.2s linear 0.5s;
+    cursor: pointer;
+}
+.fancy span:before,
+.fancy span:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  top: 20px;
+  width: 100%;
+  -webkit-transition: width 2s linear 0.1s; /* For Safari 3.1 to 6.0 */
+  transition: width 0.2s linear 0.1s;
+  pointer-events : none;
+}
+.fancy span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.fancy span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+.amp {
+  margin: 0 0 0.25em 0;
+}
+.amp span {
+  font-size: 0.7em;
+}
+.fancy span:hover{
+	border: 3px solid #fff;
+}
+.fancy span:hover:after, .fancy span:hover:before {
+	width: 0;
+}
+

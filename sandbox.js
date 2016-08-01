@@ -9,11 +9,12 @@ angular.module('MyApp', [])
   self.videoWidth = 1920;
   self.videoHeight = 1080;
   self.scrollPos = 0;
-  self.skill_i = [" Developer;", "Email marketing;", "Web Troubleshooting;", "Web Consulting;"];
+  //self.skill_i = [" Developer;", "Email marketing;", "Web Troubleshooting;", "Web Consulting;"];
+  self.skill_i = [" test;", "2;", "2;", "3;"];
   self.skill = "";
   self.promt = "_";
   self.control_promt = 1;
-  self.control_scroll = 1;
+  self.control_scroll = false;
 
   center_background();
   skills_presentation(self.skill_i[0], true);
@@ -29,24 +30,15 @@ angular.module('MyApp', [])
       skills_presentation(self.skill_i[3], false);
   },self.skill_i[0].length * 500 + self.skill_i[1].length * 500 + self.skill_i[2].length * 500 + 6000);
 
+
   $timeout(function() {
       
-      //angular.element(scroll_sign).css( "display", "block");
-      angular.element(coming).css( "display", "block");
+      angular.element(scroll_sign).css( "display", "block");
+      self.control_scroll = true;
 
-      // $interval(function() {
+  },self.skill_i[0].length * 500 + self.skill_i[1].length * 500 + self.skill_i[2].length * 500 + self.skill_i[3].length * 500 + 3000);
 
-      //   self.control_scroll = self.control_scroll * -1;
-      //   console.log(self.control_scroll);
-      //   if (self.control_scroll > 0){
-      //       angular.element(scroll_sign).css( "opacity", 1);
-      //   }
-      //   else{
-      //       angular.element(scroll_sign).css( "opacity", 0);
-      //   }
-      // }, 500);
 
-  },self.skill_i[0].length * 500 + self.skill_i[1].length * 500 + self.skill_i[2].length * 500 + self.skill_i[3].length * 500 + 6000);
 
   $interval(function() {
     self.control_promt = self.control_promt * -1;
@@ -56,7 +48,7 @@ angular.module('MyApp', [])
     else{
         angular.element(promt_).css( "opacity", 0);
     }
-  }, 500);
+  }, 500);//blink promt
 
 
   function skills_presentation (skill,pass) {
@@ -79,7 +71,18 @@ angular.module('MyApp', [])
 
   
 // Part to scroll
+  angular.element($window).bind('wheel', function(){
 
+    //console.log("scrolling");
+      if(self.control_scroll)
+      {
+        var video = angular.element(vid);
+        video[0].pause();      
+        angular.element(vid).css( "opacity", 0.4);      
+        angular.element(scroll_sign).css( "display", "none");
+      }
+ 
+  });//scroll
 
 
   //angular.element('#layer-background').addClass('hide');
