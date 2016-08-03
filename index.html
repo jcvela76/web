@@ -13,7 +13,8 @@
   </head>
   <body ng-app="MyApp" id="container">
   	<div ng-controller="MyController as ctrl">
-	  	<div id="layer" class="julio" data-id="345">
+      <div id="close_ico" ng-click="ctrl.close_menu()">X</div>
+	  	<div id="layer" class="julio" data-id="345" ng-class="{'layer_active': ctrl.isActive}">
 		  	
 			  <video width="1920" loop autoplay class="video-background" id="vid">
           <source src="movie.mp4" type="video/mp4">
@@ -22,10 +23,11 @@
         </video>
 	  	</div>
       
-      <div id="layer_intro">
-            <p class="subtitle fancy"><span>About Me</span></p>
+      <div id="layer_intro" ng-class="{'layer_intro_active': ctrl.isActive}">
+            
+            <div class="subtitle fancy"><div id="menu1" ng-class="{'active': ctrl.isActive_menu_1}" ng-click="ctrl.open_menu_1()">About Me</div ></div>
 
-            <p class="subtitle fancy"><span>A fancy subtitle</span></p>
+            <div class="subtitle fancy"><div id="menu2" ng-class="{'active': ctrl.isActive_menu_2}" ng-click="ctrl.open_menu_2()">Portafolio</div ></div>
 
             <h1>{Julio Vela: </h1>
             <h1 ng-bind="ctrl.skill"></h1>
@@ -35,9 +37,9 @@
                 <div id="scroll_sign">>></div>
                 <div id="coming">coming soon</div>
             </div> 
-            <p class="subtitle fancy"><span>Projects</span></p>
+            <div class="subtitle fancy"><div id="menu3">Projects</div ></div>
 
-            <p class="subtitle fancy"><span>Contact Me</span></p>
+            <div class="subtitle fancy"><div id="menu4">Contact Me</div ></div>
       </div>
       
 

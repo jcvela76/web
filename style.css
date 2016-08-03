@@ -32,7 +32,7 @@ body{
 }
 #layer_intro{
 	text-align: center;
-	padding-top: 300px;
+	padding-top: 505px;
 	background-image: url("images/black-squares.png");
 }
 #layer_intro h1{
@@ -81,28 +81,7 @@ body{
     position: relative;
     text-shadow: rgba(10,26,26,1) 0px 5px 5px;
 }
-.menu{
-	/*display: none;*/
-	color: #fff;
-	font-family: "program";
-	font-size: 35px;
-	border: 3px solid #fff;
-	width: 200px;
-	margin: 30px auto;
-	padding: 15px auto;
-	line-height: 45px;
-}
-.menu:after { 
-    content:"";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 0.5em;
-    border-top: 1px solid black;
-    z-index: -1;
 
-}
 
 @-webkit-keyframes example {
     0%   {top:-10px;}
@@ -120,18 +99,37 @@ body{
 
     100% {top:-10px;}}
 
+#promt_{
+	-webkit-animation-name: blink_promt; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+    animation-name: blink_promt;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@-webkit-keyframes blink_promt {
+    0%   {opacity: 0}
 
+    100% {opacity: 1}
+}
+
+/* Standard syntax */
+@keyframes blink_promt {
+        0%   {opacity: 0}
+
+    100% {opacity: 1}
+}
 
 .fancy {
   line-height: 0.5;
   text-align: center;
 }
-.fancy span {
+.fancy div {
   display: inline-block;
   position: relative;  
   color: #fff;
 	font-size: 35px;
-	line-height: 50px;
+	line-height: 45px;
 	border: 3px solid transparent;
 	padding: 0px 10px;
 	text-shadow: rgba(10,26,26,1) 0px 5px 5px;
@@ -139,9 +137,10 @@ body{
 	-webkit-transition: border 0.2s linear 0.5s; /* For Safari 3.1 to 6.0 */
     transition: border 0.2s linear 0.5s;
     cursor: pointer;
+    display: none;
 }
-.fancy span:before,
-.fancy span:after {
+.fancy div:before,
+.fancy div:after {
   content: "";
   position: absolute;
   height: 5px;
@@ -153,24 +152,83 @@ body{
   transition: width 0.2s linear 0.1s;
   pointer-events : none;
 }
-.fancy span:before {
+.fancy div:before {
   right: 100%;
   margin-right: 15px;
 }
-.fancy span:after {
+.fancy div:after {
   left: 100%;
   margin-left: 15px;
 }
-.amp {
-  margin: 0 0 0.25em 0;
-}
-.amp span {
-  font-size: 0.7em;
-}
-.fancy span:hover{
+.fancy div:hover{
 	border: 3px solid #fff;
 }
-.fancy span:hover:after, .fancy span:hover:before {
+.fancy div:hover:after, .fancy div:hover:before {
 	width: 0;
+}
+
+
+.open_menu{
+	display: block;
+	background: #fff;
+	height: 1000px;
+}
+
+#close_ico{
+	position: fixed;
+	z-index: 1000;
+	color: rgb(255, 255, 255);
+	top: 0px;
+	right: 0px;
+	padding: 15px;
+}
+
+/*Menu css animation */
+
+#menu1, #menu2, #menu3, #menu4 {
+  -webkit-transition: width 2s ease, height 2s ease, background 2s ease;
+  -moz-transition: width 2s ease, height 2s ease, background 2s ease;
+  -o-transition: width 2s ease, height 2s ease, background 2s ease;
+  transition: width 2s ease, height 2s ease, background 2s ease;
+  width: 200px;
+  height: 45px;
+  margin-top: 40px;
+}
+
+.box-change {
+  width: 400px;
+  height: 400px;
+  width: 600px;
+}
+
+.active {
+  background: rgba(0,0,0, 0.5);
+  width: 100% !important;
+  height: 1000px !important;
+  border: 3px solid transparent !important;
+  cursor: inherit !important;
+}
+.disabled {
+  background: #eee;
+  color: #aaa;
+}
+#layer_intro{
+	-webkit-transition: padding-top 2s ease, margin-top 2s ease;
+	  -moz-transition: padding-top 2s ease, margin-top 2s ease;
+	  -o-transition: padding-top 2s ease, margin-top 2s ease;
+	  transition: padding-top 2s ease, margin-top 2s ease;
+}
+.layer_intro_active{
+	padding-top: 0px !important;
+	margin-top: 0px !important;
+}
+#layer{
+	-webkit-transition: margin-top 2s ease;
+	  -moz-transition: margin-top 2s ease;
+	  -o-transition: margin-top 2s ease;
+	  transition: margin-top 2s ease;
+}
+.layer_active{
+	margin-top: 0px !important;
 }
 
