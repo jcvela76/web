@@ -10,7 +10,7 @@ angular.module('MyApp', [])
   self.videoHeight = 1080;
   self.scrollPos = 0;
   //self.skill_i = [" Developer;", "Email marketing;", "Web Troubleshooting;", "Web Consulting;"];
-  self.skill_i = [" test;", "2;", "2;", "Web Consulting;"];
+  self.skill_i = [" test;", "2;", "2;", "Web;"];
   self.skill = "";
   self.promt = "_";
   self.control_promt = 1;
@@ -90,6 +90,8 @@ angular.module('MyApp', [])
 
   self.open_menu_1 = function(e) {
     if (!self.isActive){
+
+      
       self.isActive = !self.isActive;
       self.isActive_menu_1 = true;
       $document.find("body").css('overflow-y', 'auto');
@@ -110,6 +112,9 @@ angular.module('MyApp', [])
 
   self.close_menu = function(e) {
     if (self.isActive){
+      location.hash = "#top_ico";
+      $window.pageYOffset = 0;
+      $document.find("body").scrollTop = 0;
       self.isActive = !self.isActive;
       self.isActive_menu_1 = false;
       self.isActive_menu_2 = false;
@@ -118,6 +123,7 @@ angular.module('MyApp', [])
       angular.element(menu3).css( "display", "inline-block");
       angular.element(menu4).css( "display", "inline-block"); 
       $document.find("body").css('overflow-y', 'hidden');
+      console.log($window.pageYOffset)
     }
     
   };
